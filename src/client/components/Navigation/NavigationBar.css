@@ -1,0 +1,12 @@
+.Navigation {
+    background-color: #090A0A;
+    grid-column-start: 1;
+    padding: 0.8rem;
+}
+.Navigation-logo {
+    width: 200px;
+}
+.Navigation-list {
+    list-style: none;
+    padding: 0;
+}

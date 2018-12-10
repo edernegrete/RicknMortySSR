@@ -1,0 +1,21 @@
+{
+    "general": {
+        "title": "Rick and Morty Universe",
+        "characters": "Characters",
+        "episodes": "Episodes",
+        "planets": "Planets"
+    },
+    "shows": {
+        "airDate": "Air date",
+        "name": "Episode"
+    },
+    "home": {
+        "title": "Welcome to the Rick and Morty Universe",
+        "subtitle": "You can explore planets, characters and episodes",
+        "action": "Enjoy the ride!"
+    },
+    "planets": {
+        "dimension": "Dimension",
+        "numberOfResidents": "Number of residents"
+    }
+}
