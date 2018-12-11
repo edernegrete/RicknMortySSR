@@ -31,6 +31,7 @@ h1 {
     'menu main main main right right'
     'menu main main main right right';
     grid-gap: 10px;
+    height: 100vh;
     background-color: #2D3033;
 }
 .Navigation {
@@ -38,6 +39,23 @@ h1 {
 }
 .main {
     grid-area: main;
+}
+
+@media (max-width: 768px) {
+    .root {
+        display: flex;
+        flex-direction: column;
+    }
+    .Navigation {
+        text-align: center;
+    }
+    .Navigation-logo {
+        margin: 0 auto;
+    }
+    .Navigation-list {
+        display: flex;
+        justify-content: space-between;
+    }
 }.DetailCard {
     margin: 1rem;
     transition: 0.5s all ease;

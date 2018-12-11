@@ -1329,7 +1329,7 @@ exports.default = function (req, store) {
     initialI18nStore[l] = req.i18n.services.resourceStore.data[l];
   });
   var initialLanguage = req.i18n.language;
-  return '\n      <html>\n        <head>\n          <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">\n          <link rel="stylesheet" href="/css/main.css">  \n        </head>\n        <body>\n          <div id="app">' + content + '</div>\n          <script>\n            window.INITIAL_STATE = ' + JSON.stringify(store.getState()) + '\n            window.initialI18nStore = JSON.parse(\'' + JSON.stringify(initialI18nStore) + '\');\n            window.initialLanguage = \'' + initialLanguage + '\';\n          </script>\n          <script src="bundle.js"></script>\n        </body>\n      </html>\n    ';
+  return '\n      <html>\n        <head>\n          <meta name="viewport" content="width=device-width, initial-scale=1.0">\n          <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">\n          <link rel="stylesheet" href="/css/main.css">  \n        </head>\n        <body>\n          <div id="app">' + content + '</div>\n          <script>\n            window.INITIAL_STATE = ' + JSON.stringify(store.getState()) + '\n            window.initialI18nStore = JSON.parse(\'' + JSON.stringify(initialI18nStore) + '\');\n            window.initialLanguage = \'' + initialLanguage + '\';\n          </script>\n          <script src="bundle.js"></script>\n        </body>\n      </html>\n    ';
 };
 
 /***/ }),
