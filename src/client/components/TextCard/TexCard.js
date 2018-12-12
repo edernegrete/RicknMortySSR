@@ -1,7 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './TextCard.css';
 
-export default (props) => {
+const TextCard = (props) => {
     return (
         <div key={props.id}  className="SimpleCard">
             <div>
@@ -19,3 +20,10 @@ export default (props) => {
         </div>
     )
 };
+TextCard.propTypes = {
+    id: PropTypes.number,
+    name: PropTypes.string,
+    list: PropTypes.array
+};
+
+export default TextCard;

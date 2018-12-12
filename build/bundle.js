@@ -335,11 +335,15 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _propTypes = __webpack_require__(49);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 __webpack_require__(37);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = function (props) {
+var TextCard = function TextCard(props) {
     return _react2.default.createElement(
         'div',
         { key: props.id, className: 'SimpleCard' },
@@ -367,6 +371,13 @@ exports.default = function (props) {
         )
     );
 };
+TextCard.propTypes = {
+    id: _propTypes2.default.number,
+    name: _propTypes2.default.string,
+    list: _propTypes2.default.array
+};
+
+exports.default = TextCard;
 
 /***/ }),
 /* 11 */
@@ -578,17 +589,37 @@ var _NavigationBar = __webpack_require__(24);
 
 var _NavigationBar2 = _interopRequireDefault(_NavigationBar);
 
+var _reactI18next = __webpack_require__(1);
+
+var _logo = __webpack_require__(25);
+
+var _logo2 = _interopRequireDefault(_logo);
+
 __webpack_require__(27);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var App = function App(_ref) {
-    var route = _ref.route;
+    var t = _ref.t,
+        route = _ref.route;
 
+    var navigation = [{
+        route: '/characters',
+        text: t('general.characters')
+    }, {
+        route: '/episodes',
+        text: t('general.episodes')
+    }, {
+        route: '/planets',
+        text: t('general.planets')
+    }];
     return _react2.default.createElement(
         'div',
         { className: 'root' },
-        _react2.default.createElement(_NavigationBar2.default, null),
+        _react2.default.createElement(_NavigationBar2.default, {
+            navigation: navigation,
+            title: t('general.title'),
+            logo: _logo2.default }),
         _react2.default.createElement(
             'div',
             { id: 'page-content' },
@@ -598,7 +629,7 @@ var App = function App(_ref) {
 };
 
 exports.default = {
-    component: App
+    component: (0, _reactI18next.withNamespaces)('translations')(App)
 };
 
 /***/ }),
@@ -620,17 +651,34 @@ var _reactRouterDom = __webpack_require__(9);
 
 var _reactI18next = __webpack_require__(1);
 
-var _logo = __webpack_require__(25);
+var _propTypes = __webpack_require__(49);
 
-var _logo2 = _interopRequireDefault(_logo);
+var _propTypes2 = _interopRequireDefault(_propTypes);
 
 __webpack_require__(26);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function NavigationBar(props) {
+var NavigationBar = function NavigationBar(props) {
     var t = props.t;
 
+    function renderNavList() {
+        return props.navigation.map(function (item, index) {
+            return _react2.default.createElement(
+                'li',
+                { key: index },
+                _react2.default.createElement(
+                    _reactRouterDom.Link,
+                    { to: item.route },
+                    _react2.default.createElement(
+                        'h2',
+                        null,
+                        item.text
+                    )
+                )
+            );
+        });
+    }
     return _react2.default.createElement(
         'div',
         { className: 'Navigation' },
@@ -640,59 +688,26 @@ function NavigationBar(props) {
             _react2.default.createElement(
                 'div',
                 { className: 'Navigation-logo' },
-                _react2.default.createElement('img', { src: _logo2.default })
+                _react2.default.createElement('img', { src: props.logo })
             ),
             _react2.default.createElement(
                 'h1',
                 { className: 'Navigation-title' },
-                t('general.title')
+                props.title
             )
         ),
         _react2.default.createElement(
             'ul',
             { className: 'Navigation-list' },
-            _react2.default.createElement(
-                'li',
-                null,
-                _react2.default.createElement(
-                    _reactRouterDom.Link,
-                    { to: '/characters' },
-                    _react2.default.createElement(
-                        'h2',
-                        null,
-                        t('general.characters')
-                    )
-                )
-            ),
-            _react2.default.createElement(
-                'li',
-                null,
-                _react2.default.createElement(
-                    _reactRouterDom.Link,
-                    { to: '/episodes' },
-                    _react2.default.createElement(
-                        'h2',
-                        null,
-                        t('general.episodes')
-                    )
-                )
-            ),
-            _react2.default.createElement(
-                'li',
-                null,
-                _react2.default.createElement(
-                    _reactRouterDom.Link,
-                    { to: '/planets' },
-                    _react2.default.createElement(
-                        'h2',
-                        null,
-                        t('general.planets')
-                    )
-                )
-            )
+            renderNavList()
         )
     );
-}
+};
+NavigationBar.propTypes = {
+    navigation: _propTypes2.default.array,
+    logo: _propTypes2.default.string,
+    title: _propTypes2.default.string
+};
 exports.default = (0, _reactI18next.withNamespaces)('translations')(NavigationBar);
 
 /***/ }),
@@ -911,11 +926,15 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _propTypes = __webpack_require__(49);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 __webpack_require__(32);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = function (props) {
+var DetailCard = function DetailCard(props) {
     return _react2.default.createElement(
         'div',
         { className: 'DetailCard' },
@@ -940,6 +959,14 @@ exports.default = function (props) {
         )
     );
 };
+
+DetailCard.propTypes = {
+    image: _propTypes2.default.string,
+    title: _propTypes2.default.string,
+    subtitle: _propTypes2.default.string
+};
+
+exports.default = DetailCard;
 
 /***/ }),
 /* 32 */
@@ -1515,6 +1542,12 @@ exports.default = function () {
       return state;
   }
 };
+
+/***/ }),
+/* 49 */
+/***/ (function(module, exports) {
+
+module.exports = require("prop-types");
 
 /***/ })
 /******/ ]);

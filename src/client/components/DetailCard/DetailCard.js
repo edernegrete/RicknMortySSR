@@ -1,6 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './DetailCard.css'
-export default (props) => {
+const DetailCard = (props) => {
     return (
         <div className="DetailCard">
             <div className="Card-image">
@@ -13,3 +14,11 @@ export default (props) => {
         </div>
     )
 };
+
+DetailCard.propTypes = {
+    image: PropTypes.string,
+    title: PropTypes.string,
+    subtitle: PropTypes.string
+};
+
+export default DetailCard;
