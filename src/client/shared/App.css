@@ -17,8 +17,9 @@ h1 {
 .root {
     display: grid;
     grid-template-areas:
-    'menu main main main right right'
-    'menu main main main right right';
+    'menu main main main main main'
+    'menu main main main main main'
+    'menu main main main main main';
     grid-gap: 10px;
     background-color: #2D3033;
 }
@@ -31,8 +32,14 @@ h1 {
 
 @media (max-width: 768px) {
     .root {
-        display: flex;
-        flex-direction: column;
+        display: grid;
+        grid-template-areas:
+        'menu menu menu menu menu menu'
+        'menu menu menu menu menu menu'
+        'main main main main main main'
+        'main main main main main main';
+        grid-gap: 10px;
+        background-color: #2D3033;
     }
     .Navigation {
         text-align: center;
@@ -41,7 +48,8 @@ h1 {
         margin: 0 auto;
     }
     .Navigation-list {
-        display: flex;
-        justify-content: space-between;
+        display: grid;
+        font-size: 12px;
+        grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
     }
 }
